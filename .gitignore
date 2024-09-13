@@ -1,0 +1,14 @@
+*.txt
+*.gz
+*.so
+*.jsonl
+*.json
+*.zip
+*.pkl
+*.pdf
+cached_*
+events.*
+*.lnk
+CodeBERT
+tracking_bug
+demo

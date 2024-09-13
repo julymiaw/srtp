@@ -1,0 +1,17 @@
+\contentsline {section}{\hbox to\@tempdima {1\hfil }文献综述}{1}{section*.2}%
+\contentsline {section}{\numberline {2}前期项目研究总结}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}数据集获取}{6}{subsection.2.1}%
+\contentsline {subsubsection}{一、数据集选取}{6}{section*.3}%
+\contentsline {subsubsection}{二、数据集处理}{6}{section*.4}%
+\contentsline {subsubsection}{三、数据集分析}{8}{section*.5}%
+\contentsline {subsubsection}{四、总结}{9}{section*.6}%
+\contentsline {subsection}{\numberline {2.2}预训练模型选择}{9}{subsection.2.2}%
+\contentsline {subsubsection}{一、codeBERT模型}{9}{section*.7}%
+\contentsline {subsubsection}{二、GraphCodeBert模型}{9}{section*.8}%
+\contentsline {subsubsection}{三、Unixcoder(跨模态预训练模型)}{11}{section*.9}%
+\contentsline {subsubsection}{（1）模型概述}{11}{section*.10}%
+\contentsline {subsubsection}{（2）模型示例}{11}{section*.11}%
+\contentsline {subsubsection}{（3）预训练任务：(Fine-tune)}{12}{section*.12}%
+\contentsline {section}{\numberline {3}项目后期研究方案}{14}{section.3}%
+\contentsline {section}{\numberline {4}经费使用安排}{15}{section.4}%
+\contentsline {section}{附录————中期检查表}{17}{section*.13}%

@@ -1,0 +1,1032 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/* 全局属性 */
+#write {
+  max-width: 860px;
+  font-size: 1rem;
+  color: black;
+  padding: 0 10px;
+  line-height: 1.6;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: left;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*段落*/
+#write + p, 
+#write blockquote p {
+  font-size: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin: 0;
+  line-height: 1.5rem;
+  color: black;
+}
+#write div[mdtype=toc] {
+  font-size: 1rem;
+}
+
+/*标题*/
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  margin: 1.2em 0 1em;
+  padding: 0px;
+  font-weight: bold;
+  color: black;
+}
+#write h1 {
+  font-size: 1.5rem;
+}
+#write h2 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid rgb(239, 112, 96);
+}
+#write h2 span {
+ display: inline-block;
+ font-weight: bold;
+ background: rgb(239, 112, 96);
+ color: #ffffff;
+ padding: 3px 10px 1px;
+ border-top-right-radius: 3px;
+ border-top-left-radius: 3px;
+ margin-right: 3px;
+}
+#write h2:after {
+ display: inline-block;
+ content: "";
+ vertical-align: bottom;
+ border-bottom: 1.25rem solid #efebe9;
+ border-right: 1.25rem solid transparent;
+}
+
+#write h3 {
+  font-size: 1.3rem;
+}
+#write h4 {
+  font-size: 1.2rem;
+}
+#write h5 {
+  font-size: 1.1rem;
+}
+#write h6 {
+  font-size: 1rem;
+}
+
+/*列表*/
+#write ul,
+#write ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  color: black;
+}
+#write ul {
+  list-style-type: disc;
+}
+#write ul ul {
+  list-style-type: square;
+}
+#write ol {
+  list-style-type: decimal;
+}
+#write li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.7rem;
+  text-align: left;
+  color: rgb(1,1,1); /* 只要是纯黑色微信编辑器就会把color这个属性吞掉。。。*/
+  font-weight: 500;
+}
+
+/*引用*/
+#write blockquote {
+  display: block;
+  font-size: .9em;
+  overflow: auto;
+  border-left: 3px solid rgb(239, 112, 96);
+  color: #6a737d;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: #fff9f9;
+}
+
+/*链接*/
+#write a {
+  text-decoration: none;
+  word-wrap: break-word;
+  font-weight: bold;
+  border-bottom: 1px solid #1e6bb8;
+  color: rgb(239, 112, 96);
+  border-bottom: 1px solid rgb(239, 112, 96);
+}
+
+/*行内代码*/
+#write p code,
+#write li code {
+  font-size: .9rem;
+  word-wrap: break-word;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+  color:  rgb(239, 112, 96);;
+  background-color: rgba(27,31,35,.05);
+  font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
+  word-break: break-all;
+}
+
+/*图片*/
+#write img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+#write span img {
+  display: inline-block;
+  border-right: 0px;
+  border-left: 0px;
+}
+
+/*表格*/
+#write table {
+  display: table;
+  text-align: left;
+}
+#write tbody {
+  border: 0;
+}
+#write table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  background-color: white;
+}
+#write table tr:nth-child(2n) {
+  background-color: #F8F8F8;
+}
+#write table tr th,
+#write table tr td {
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-align: left;
+}
+#write table tr th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+/* 行内代码 */
+#write span code, #write li code {
+ color: rgb(239, 112, 96);
+}
+
+/* 脚注上标 */
+#write .md-footnote {
+ font-weight: bold;
+ color: rgb(239, 112, 96);
+}
+#write .md-footnote > .md-text:before {
+ content: '['
+}
+#write .md-footnote > .md-text:after {
+ content: ']'
+}
+
+/* 脚注 */
+#write .md-def-name {
+  padding-right: 1.8ch;
+}
+#write .md-def-name:before {
+  content: '[';
+  color: #000;
+}
+#write .md-def-name:after {
+  color: #000;
+}
+
+/* 代码块主题 */
+.md-fences:before {
+  content: ' ';
+  display: block;
+  width: 100%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-color: #282c34;
+  margin-bottom: -7px;
+  border-radius: 5px;
+  background-position: 10px 10px;
+}
+
+/* CodeMirror 相关内容 */
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: auto;
+}
+.cm-s-inner.CodeMirror {
+  padding: .5rem;
+  background-color: #292d3e;
+  color: #a6accd;
+  font-family: Consolas;
+  border-radius: 4px;
+}
+.cm-s-inner .cm-keyword {
+  color: #c792ea !important;
+}
+.cm-s-inner .cm-operator {
+  color: #89ddff !important;
+}
+.cm-s-inner .cm-variable-2 {
+  color: #eeffff !important;
+}
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #f07178 !important;
+}
+.cm-s-inner .cm-builtin {
+  color: #ffcb6b !important;
+}
+.cm-s-inner .cm-atom {
+  color: #f78c6c !important;
+}
+.cm-s-inner .cm-number {
+  color: #ff5370 !important;
+}
+.cm-s-inner .cm-def {
+  color: #82aaff !important;
+}
+.cm-s-inner .cm-string {
+  color: #c3e88d !important;
+}
+.cm-s-inner .cm-string-2 {
+  color: #f07178 !important;
+}
+.cm-s-inner .cm-comment {
+  color: #676e95 !important;
+}
+.cm-s-inner .cm-variable {
+  color: #f07178 !important;
+}
+.cm-s-inner .cm-tag {
+  color: #ff5370 !important;
+}
+.cm-s-inner .cm-meta {
+  color: #ffcb6b !important;
+}
+.cm-s-inner .cm-attribute {
+  color: #c792ea !important;
+}
+.cm-s-inner .cm-property {
+  color: #c792ea !important;
+}
+.cm-s-inner .cm-qualifier {
+  color: #decb6b !important;
+}
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #decb6b !important;
+}
+.cm-s-inner .cm-error {
+  color: rgba(255, 255, 255, 1) !important;
+  background-color: #ff5370 !important;
+}
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid rgb(239, 112, 96);
+  z-index: 3;
+}
+
+.cm-s-inner div.CodeMirror-selected {
+  background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+  background-color: rgba(167, 178, 189, 0.0) !important;
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line > span::-moz-selection,
+.cm-s-inner .CodeMirror-line > span > span::-moz-selection {
+  background-color: rgba(167, 178, 189, 0.2);
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line > span::selection,
+.cm-s-inner .CodeMirror-line > span > span::selection {
+  background-color: rgba(167, 178, 189, 0.2);
+}
+
+/** initialize css counter */
+h1 {
+    counter-reset: h2
+}
+
+h2 {
+    counter-reset: h3
+}
+
+h3 {
+    counter-reset: h4
+}
+
+h4 {
+    counter-reset: h5
+}
+
+h5 {
+    counter-reset: h6
+}
+
+/** put counter result into headings */
+#write h2:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+}
+
+#write h3:before,
+h3.md-focus.md-heading:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". "
+}
+
+#write h4:before,
+h4.md-focus.md-heading:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) ". "
+}
+
+#write h5:before,
+h5.md-focus.md-heading:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "
+}
+
+#write h6:before,
+h6.md-focus.md-heading:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+}
+
+/** override the default style for focused headings */
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before,
+#write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+    color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: inherit;
+    left: initial;
+    float: none;
+    top: initial;
+    font-size: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    vertical-align: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+/* No link underlines in TOC */
+.md-toc-inner {
+    text-decoration: none;
+}
+
+.md-toc-h1 {
+    margin-left: 0;
+    font-size: 1.5rem;
+    counter-reset: h2toc
+}
+
+.md-toc-h2 {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    counter-reset: h3toc
+}
+
+.md-toc-h3 {
+    margin-left: 3rem;
+    font-size: .9rem;
+    counter-reset: h4toc
+}
+
+.md-toc-h4 {
+    margin-left: 4rem;
+    font-size: .85rem;
+    counter-reset: h5toc
+}
+
+.md-toc-h5 {
+    margin-left: 5rem;
+    font-size: .8rem;
+    counter-reset: h6toc
+}
+
+.md-toc-h6 {
+    margin-left: 6rem;
+    font-size: .75rem;
+}
+
+.md-toc-h2:before {
+    color: black;
+    counter-increment: h2toc;
+    content: counter(h2toc) ". "
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h3:before {
+    color: black;
+    counter-increment: h3toc;
+    content: counter(h2toc) ". " counter(h3toc) ". "
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h4:before {
+    color: black;
+    counter-increment: h4toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) ". "
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h5:before {
+    color: black;
+    counter-increment: h5toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) ". " counter(h5toc) ". "
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h6:before {
+    color: black;
+    counter-increment: h6toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) ". " counter(h5toc) ". " counter(h6toc) ". "
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 0;
+}
+
+.outline-h1 {
+    counter-reset: h2
+}
+
+.outline-h2 {
+    counter-reset: h3
+}
+
+.outline-h3 {
+    counter-reset: h4
+}
+
+.outline-h4 {
+    counter-reset: h5
+}
+
+.outline-h5 {
+    counter-reset: h6
+}
+
+.outline-h2>.outline-item>.outline-label:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+}
+
+.outline-h3>.outline-item>.outline-label:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) ". "
+}
+
+.outline-h4>.outline-item>.outline-label:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) ". "
+}
+
+.outline-h5>.outline-item>.outline-label:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "
+}
+
+.outline-h6>.outline-item>.outline-label:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+}
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>前期项目研究总结</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='项目进展状况小结'><span>项目进展状况小结</span></h1><h2 id='目标回顾'><span>目标回顾</span></h2><p><span>根据任务书，我们计划于4月前完成项目目标确立和创新点选取，研究方法和技术选择，并基于选择的技术路线完成训练数据集的搭建。</span></p><p><span>目前，我们已经明确了项目目标：比较基于抽象语法树(AST)的CodeBERT，基于数据流图(DFG)的GraphCodeBert和同时训练代码处理和自然语言处理的UniXcoder这三种预训练模型在源代码缺陷定位任务上的表现。我们的创新点在于，此前还没有研究关注最新的NL-PL双模态大模型在错误定位(Fault-localization)上的应用。</span></p><p><span>我们的选择的技术路线类似传统的基于信息检索(IR-based)的错误定位，研究方法类似自然语言处理领域常用的预训练+微调模式。</span></p><p><span>数据集方面，我们原先计划通过爬虫获取Github错误报告的形式构建，但在研究的过程中，我们发现大型开源项目往往会使用类似Bugzilla的错误跟踪系统，我们只需要调用对应的api就可以获取完整的错误报告。此外，为了与IRBL领域其他研究进行横向对比，我们需要选择更为通用的数据集。因此，我们从此前研究常用的数据集出发，构建了一个基于错误跟踪系统的数据集，并已经完成了训练数据的预处理。此外，我们选择的预训练模型已经在CodeSearchNet代码搜索数据集上进行了预训练，并可以针对特定编程语言进行进一步迁移训练。我们计划把该数据集中的Java语言代码搜索数据集与我们此前构建的Java语言错误报告数据集进行混合，但目前还没有完成两种数据集格式的统一。</span></p><p><span>模型选择方面，我们明确分工，由3名组员分别去阅读3个模型对应的代码。</span></p><p><span>此外，为了完成后续预训练模型的迁移训练，我们申请了东南大学大数据共享平台账号，并使用云计算节点完成了训练数据集的预处理(使用云CPU)，并尝试使用云GPU对预训练模型进行迁移训练。训练结果如图所示，其中灰色的线是在云服务器上训练时，损失率随着训练轮数的变化曲线，其他线是在本机上用很小的模拟数据集测试代码时的结果，可以看到随着训练轮数的增加，损失函数的值呈收敛趋势。</span></p><p><img src="./%E5%89%8D%E6%9C%9F%E9%A1%B9%E7%9B%AE%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93.assets/%E6%8D%9F%E5%A4%B1%E7%8E%87%E6%9B%B2%E7%BA%BF-1712455081776-2-1712455100425-4.png" referrerpolicy="no-referrer" alt="损失率曲线"></p><p><span>最后，在研究的过程中，我们共同完成了一篇针对IRFL技术和Deep-learning技术的综述报告，报告在附件中。</span></p><h2 id='数据集获取'><span>数据集获取</span></h2><h3 id='前言'><span>前言</span></h3><p><span>数据集获取是本项目的重要组成部分，是复现模型、改进模型的前提和基础。在项目的前中期，我们已经完成了数据集选取和预处理，以及数据集的分析等任务。下面，本总结将从数据集选取、数据集处理和数据集分析三个方面来阐述本项目在数据集方面前中期的进展。</span></p><h3 id='数据集选取'><span>数据集选取</span></h3><ol><li><p><span>网络爬虫获取数据集的局限性</span></p><p><span>在项目进行之初，我们计划使用python爬虫爬取Github开源项目的错误报告来搭建数据集。经过尝试，我们发现网络爬虫无法精确获取项目修改前后的代码，也就是说，我们无法找到错误报告与错误代码的对应关系；并且，爬虫所获得的数据格式与模型所需要的格式有很大的差异，处理起来非常繁琐。因此，我们选择BugLocator项目在测试中所选用的数据集。</span></p></li><li><p><span>选择BugLocator数据集的原因</span></p><p><span>BugLocator数据集通常被各种最先进的算法使用，并且数据集里的数据可以在Bug Center里找到；此外，该数据集的数据全面，包含错误的自然语言描述、修改前后的错误代码、项目作者和错误代码提交记录等信息；最后，该数据集的格式与我们将要训练的模型所需要的格式相符。</span></p></li><li><p><span>BugLocator数据集基本介绍</span></p><p><span>该数据集的错误报告来自AspectJ、Birt、Eclipse、JDT、SWT、Tomcat六个java开发平台，共有593个详细的错误报告。</span></p></li></ol><h3 id='数据集处理'><span>数据集处理</span></h3><p><span>原始数据集是xml格式的，仅包含错误描述，提交时间和错误文件路径等信息，并不包含错误源代码。</span></p><p><span>以下这个函数来根据文件路径获取修改前后的代码内容。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">retrieve_diff_on_filepath</span>(<span class="cm-variable">repository</span>, <span class="cm-variable">commit</span>, <span class="cm-variable">filepath</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cmd</span> <span class="cm-operator">=</span> <span class="cm-string">'git -C '</span> <span class="cm-operator">+</span> <span class="cm-variable">repository</span> <span class="cm-operator">+</span> <span class="cm-string">' diff --unified=0 --no-prefix '</span> <span class="cm-operator">+</span> <span class="cm-variable">commit</span> <span class="cm-operator">+</span> <span class="cm-string">'^ '</span> <span class="cm-operator">+</span> <span class="cm-variable">commit</span> <span class="cm-operator">+</span> <span class="cm-string">' -- '</span> <span class="cm-operator">+</span> <span class="cm-variable">filepath</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">diff_lines</span> <span class="cm-operator">=</span> <span class="cm-variable">subprocess</span>.<span class="cm-property">Popen</span>(<span class="cm-variable">cmd</span>, <span class="cm-variable">shell</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>, <span class="cm-variable">stdout</span><span class="cm-operator">=</span><span class="cm-variable">subprocess</span>.<span class="cm-property">PIPE</span>).<span class="cm-property">stdout</span>.<span class="cm-property">read</span>().<span class="cm-property">decode</span>(<span class="cm-string">'latin-1'</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">diff_lines</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 121px;"></div><div class="CodeMirror-gutters" style="height: 121px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>它通过subprocess.Popen创建子进程执行git命令来获取错误代码修改前后的内容。</span></p><p><span>以下这段代码用来获取数据集中所有有修改的代码，并通过 “文件路径：代码内容” 的字典方式存储。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">retrieve_diff</span>(<span class="cm-variable">repository</span>, <span class="cm-variable">commit</span>, <span class="cm-variable">ext</span><span class="cm-operator">=</span><span class="cm-string">'.java'</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cmd</span> <span class="cm-operator">=</span> <span class="cm-string">'git -C '</span> <span class="cm-operator">+</span> <span class="cm-variable">repository</span> <span class="cm-operator">+</span> <span class="cm-string">' diff-tree --no-commit-id --name-only -r '</span> <span class="cm-operator">+</span> <span class="cm-variable">commit</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">files</span> <span class="cm-operator">=</span> {}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">diff_tree_lines</span> <span class="cm-operator">=</span> <span class="cm-variable">subprocess</span>.<span class="cm-property">Popen</span>(<span class="cm-variable">cmd</span>, <span class="cm-variable">shell</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>, <span class="cm-variable">stdout</span><span class="cm-operator">=</span><span class="cm-variable">subprocess</span>.<span class="cm-property">PIPE</span>).<span class="cm-property">stdout</span>.<span class="cm-property">read</span>().<span class="cm-property">decode</span>(<span class="cm-string">'latin-1'</span>).<span class="cm-property">split</span>(<span class="cm-string">'\n'</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">line</span> <span class="cm-keyword">in</span> <span class="cm-builtin">iter</span>(<span class="cm-variable">diff_tree_lines</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">filepath</span> <span class="cm-operator">=</span> <span class="cm-variable">line</span>.<span class="cm-property">rstrip</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">filepath</span> <span class="cm-operator">!=</span> <span class="cm-string">''</span> <span class="cm-keyword">and</span> <span class="cm-variable">filepath</span>.<span class="cm-property">endswith</span>(<span class="cm-variable">ext</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">files</span>[<span class="cm-variable">filepath</span>] <span class="cm-operator">=</span> <span class="cm-variable">retrieve_diff_on_filepath</span>(<span class="cm-variable">repository</span>, <span class="cm-variable">commit</span>, <span class="cm-variable">filepath</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">files</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 242px;"></div><div class="CodeMirror-gutters" style="height: 242px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>它先是通过创建子进程运行git命令的方式获取所有有过修改的文件的路径，再遍历这些文件路径，调用上一个函数获取每个文件中有修改的代码，最后将文件路径和相应代码以键值对的形式保存。</span></p><p><span>这段代码依然是通过创建进程运行git命令的方式获取作者、日期等信息。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>18</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">retrieve_metadata</span>(<span class="cm-variable">repository</span>, <span class="cm-variable">commit</span>): </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">full_sha</span> <span class="cm-operator">=</span> <span class="cm-keyword">None</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">author</span> <span class="cm-operator">=</span> <span class="cm-keyword">None</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">date</span> <span class="cm-operator">=</span> <span class="cm-keyword">None</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">message</span> <span class="cm-operator">=</span> <span class="cm-string">''</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cmd</span> <span class="cm-operator">=</span> <span class="cm-string">'git -C '</span> <span class="cm-operator">+</span> <span class="cm-variable">repository</span> <span class="cm-operator">+</span> <span class="cm-string">' show -s '</span> <span class="cm-operator">+</span> <span class="cm-variable">commit</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">show_lines</span> <span class="cm-operator">=</span> <span class="cm-variable">subprocess</span>.<span class="cm-property">Popen</span>(<span class="cm-variable">cmd</span>, <span class="cm-variable">shell</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>, <span class="cm-variable">stdout</span><span class="cm-operator">=</span><span class="cm-variable">subprocess</span>.<span class="cm-property">PIPE</span>).<span class="cm-property">stdout</span>.<span class="cm-property">read</span>().<span class="cm-property">decode</span>(<span class="cm-string">'latin-1'</span>).<span class="cm-property">split</span>(<span class="cm-string">'\n'</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">index</span>, <span class="cm-variable">line</span> <span class="cm-keyword">in</span> <span class="cm-builtin">enumerate</span>(<span class="cm-variable">show_lines</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">index</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">full_sha</span> <span class="cm-operator">=</span> <span class="cm-variable">line</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">elif</span> <span class="cm-variable">index</span> <span class="cm-operator">==</span> <span class="cm-number">1</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">author</span> <span class="cm-operator">=</span> <span class="cm-variable">line</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">elif</span> <span class="cm-variable">index</span> <span class="cm-operator">==</span> <span class="cm-number">2</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">date</span> <span class="cm-operator">=</span> <span class="cm-variable">line</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">message</span> <span class="cm-operator">+=</span> <span class="cm-variable">line</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">metadata</span> <span class="cm-operator">=</span> {<span class="cm-string">'sha'</span>: <span class="cm-variable">full_sha</span>, <span class="cm-string">'author'</span>: <span class="cm-variable">author</span>, <span class="cm-string">'date'</span>: <span class="cm-variable">date</span>, <span class="cm-string">'message'</span>: <span class="cm-variable">message</span>}</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">metadata</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 403px;"></div><div class="CodeMirror-gutters" style="height: 403px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>将数据集转变为json格式，获取json文件。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>7</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">main</span>():</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">bug_reports_file</span> <span class="cm-operator">=</span> <span class="cm-variable">sys</span>.<span class="cm-property">argv</span>[<span class="cm-number">1</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">repository</span> <span class="cm-operator">=</span> <span class="cm-variable">sys</span>.<span class="cm-property">argv</span>[<span class="cm-number">2</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">json_file_name</span> <span class="cm-operator">=</span> <span class="cm-variable">sys</span>.<span class="cm-property">argv</span>[<span class="cm-number">3</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">dataset</span> <span class="cm-operator">=</span> <span class="cm-variable">load_dataset</span>(<span class="cm-variable">bug_reports_file</span>, <span class="cm-variable">repository</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">with</span> <span class="cm-builtin">open</span>(<span class="cm-variable">json_file_name</span>, <span class="cm-string">'w'</span>) <span class="cm-keyword">as</span> <span class="cm-variable">f</span>:</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">dump</span>(<span class="cm-variable">dataset</span>, <span class="cm-variable">f</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 141px;"></div><div class="CodeMirror-gutters" style="height: 141px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><h3 id='数据集分析'><span>数据集分析</span></h3><p><span>这是一个处理好了的数据集个体实例</span></p><ol><li><p><span>‘bug_report’部分：</span></p></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"bug_id"</span>: <span class="cm-string">"111915"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"status"</span>: <span class="cm-string">"resolved fixed"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"result"</span>: <span class="cm-string">"7:tests/src/org/aspectj/systemtest/ajc150/Ajc150Tests.java\n12:weaver/src/org/aspectj/weaver/patterns/ReferencePointcut.java"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"timestamp"</span>: <span class="cm-string">"1128700000"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"commit"</span>: <span class="cm-string">"3021284"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"description"</span>: <span class="cm-string">"org.aspectj.weaver.BCException\nat\norg.aspectj.weaver.patterns.ReferencePointcut.concretize1(ReferencePointcut.java:306)\nat org.aspectj.weaver.patterns.Pointcut.concretize(Pointcut.java:229)\nat\norg.aspectj.weaver.patterns.ReferencePointcut.concretize1(ReferencePointcut.java:331)\nat org.aspectj.weaver.patterns.Pointcut.concretize(Pointcut.java:229)\nat org.aspectj.weaver.patterns.Pointcut.concretize(Pointcut.java:216)\nat org.aspectj.weaver.Advice.concretize(Advice.java:273)\nat org.aspectj.weaver.bcel.BcelAdvice.concretize(BcelAdvice.java:83)\nat\norg.aspectj.weaver.CrosscuttingMembers.addShadowMunger(CrosscuttingMembers.java:84)\nat\norg.aspectj.weaver.CrosscuttingMembers.addShadowMungers(CrosscuttingMembers.java:78)\nat org.aspectj.weaver.ResolvedType.collectCrosscuttingMembers(ResolvedType.java:462)\nat\norg.aspectj.weaver.CrosscuttingMembersSet.addOrReplaceAspect(CrosscuttingMembersSet.java:62)\nat org.aspectj.weaver.bcel.BcelWeaver.prepareForWeave(BcelWeaver.java:426)\nat\norg.aspectj.ajdt.internal.compiler.AjCompilerAdapter.weave(AjCompilerAdapter.java:283)\nat\norg.aspectj.ajdt.internal.compiler.AjCompilerAdapter.afterCompiling(AjCompilerAdapter.java:178)\nat\norg.aspectj.ajdt.internal.compiler.CompilerAdapter.ajc$afterReturning$org_aspectj_ajdt_internal_compiler_CompilerAdapter$2$f9cc9ca0(CompilerAdapter.aj:70)\nat org.aspectj.org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:367)\nat\norg.aspectj.ajdt.internal.core.builder.AjBuildManager.performCompilation(AjBuildManager.java:760)\nat\norg.aspectj.ajdt.internal.core.builder.AjBuildManager.doBuild(AjBuildManager.java:225)\nat\norg.aspectj.ajdt.internal.core.builder.AjBuildManager.batchBuild(AjBuildManager.java:151)\nat org.aspectj.ajde.internal.CompilerAdapter.compile(CompilerAdapter.java:122)\nat\norg.aspectj.ajde.internal.AspectJBuildManager$CompilerThread.run(AspectJBuildManager.java:191)\n\nBCException thrown: illegal change to pointcut declaration:\nspike.np.CommandCase.handleCommand(BindingTypePattern(spike.np.OtherHandler$MyWorld,\n0))\nwhen batch building\nBuildConfig[/home/guido/workspace/.metadata/.plugins/org.eclipse.ajdt.core/np.generated.lst]\n#Files=11"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"id"</span>: <span class="cm-string">"335"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"summary"</span>: <span class="cm-string">"Bug 111915  illegal change to pointcut declaration"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"preceding_commit"</span>: <span class="cm-string">"bba983e0afce48d09316b46a72dbe6d2ae4c14b4"</span>,</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 867px;"></div><div class="CodeMirror-gutters" style="height: 867px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>这个很长的&#39;description&#39;指的是错误具体发生的位置；</span></p><p><span>&#39;summary&#39;就是对错误的自然语言描述：”Bug 111915  illegal change to pointcut declaration“，表示的错误是”切入点声明的非法更改“。</span></p><ol start='2' ><li><p><span>‘commit’部分：</span></p></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"diff"</span>: {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-property">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-variable">java</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">diff</span> <span class="cm-operator">--</span><span class="cm-variable">git</span> <span class="cm-variable">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-variable">java</span> <span class="cm-variable">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-variable">java</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">index</span> <span class="cm-variable">a6f8acb461</span>.<span class="cm-number">.1</span><span class="cm-variable">aabffea64</span> <span class="cm-number">100644</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">---</span> <span class="cm-variable">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-variable">java</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+++</span> <span class="cm-variable">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-variable">java</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">@@</span> <span class="cm-operator">-</span><span class="cm-number">487</span>,<span class="cm-number">0</span> <span class="cm-operator">+</span><span class="cm-number">488</span>,<span class="cm-number">4</span> <span class="cm-operator">@@</span> <span class="cm-variable">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">Ajc150Tests</span> <span class="cm-keyword">extends</span> <span class="cm-variable">org</span>.<span class="cm-variable">aspectj</span>.<span class="cm-variable">testing</span>.<span class="cm-variable">XMLBasedAjcTestCase</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span> &nbsp;<span class="cm-variable">public</span> <span class="cm-keyword">void</span> <span class="cm-variable">testIllegalChangeToPointcutDeclaration_pr111915</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span><span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-variable">runTest</span>(<span class="cm-string">"test illegal change to pointcut declaration"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span>  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"metadata"</span>: {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"date"</span>: <span class="cm-string">"Fri Oct 21 06:56:11 2005 +0000"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"sha"</span>: <span class="cm-string">"3021284f5d910a406d26a01ce836bbb5f5cd6bfc"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"message"</span>: <span class="cm-string">"test and fix for pr111915"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"author"</span>: <span class="cm-string">"aclement &lt;aclement&gt;"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"timestamp"</span>: <span class="cm-number">1129877771.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">},</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 404px;"></div><div class="CodeMirror-gutters" style="height: 404px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>‘diff’部分的</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tests</span><span class="cm-operator">/</span><span class="cm-variable">src</span><span class="cm-operator">/</span><span class="cm-variable">org</span><span class="cm-operator">/</span><span class="cm-variable">aspectj</span><span class="cm-operator">/</span><span class="cm-variable">systemtest</span><span class="cm-operator">/</span><span class="cm-variable">ajc150</span><span class="cm-operator">/</span><span class="cm-variable">Ajc150Tests</span>.<span class="cm-property">java</span>:</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 20px;"></div><div class="CodeMirror-gutters" style="height: 20px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>即为错误代码所在路径，对应的</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span> &nbsp;<span class="cm-variable">public</span> <span class="cm-keyword">void</span> <span class="cm-variable">testIllegalChangeToPointcutDeclaration_pr111915</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span><span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-variable">runTest</span>(<span class="cm-string">"test illegal change to pointcut declaration"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+</span>  }</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 61px;"></div><div class="CodeMirror-gutters" style="height: 61px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>为错误源代码。（该部分还有三个同样格式的路径、代码键值对，受篇幅限制舍去）</span></p><p><span>‘metadata&#39;部分存储了作者、日期、时间等信息。</span></p><p><span>’view‘部分：</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang=":"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=":"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">'bug_fixing':{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">"tests/bugs150/pr109042.aj": {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  "recency_timedelta[s]": 2511442,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  "recency[30-day months]": 1.0,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  "frequency": 1,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  "br": ["08d6a5d"]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">(还有897个相同结构，此处省去)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 182px;"></div><div class="CodeMirror-gutters" style="height: 182px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>该部分记录错误代码的提交记录。</span></p><h3 id='总结'><span>总结</span></h3><p><span>我们在项目前中期搭建完成的数据集是以json的格式存储的，包含错误报告、错误代码、作者和提交记录的详细信息。</span></p><h2 id='预训练模型选择'><span>预训练模型选择</span></h2><h3 id='codebert模型'><code>codeBERT</code><span>模型</span></h3><h3 id='graphcodebert模型'><code>GraphCodeBert</code><span>模型</span></h3><p><span>GraphCodeBERT模型没有考虑抽象语法树，而是采用了DFG（数据流向图）。数据流向图是一个有向图，代表了每个变量的值从哪里来到哪里去的关系。</span></p><p><span>为了显示GraphCodeBERT的有效性，作者进行了四项下游任务，包括了代码搜索、克隆检测、代码翻译和代码改错。而我们所需要的是对源代码的定位，故侧重于代码搜索。</span><sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup></p><p><span>代码搜索的任务是通过输入一段自然语言描述，模型输出从代码库中选出一段最符合描述的代码。</span></p><p><span>该模型首先按照下列方式将过滤数据集以提高质量（</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="7.879ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 3482.7 899" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.464ex;"><defs><path id="MJX-1-TEX-I-1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-1-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path id="MJX-1-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path id="MJX-1-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-1-TEX-I-1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path id="MJX-1-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D462" xlink:href="#MJX-1-TEX-I-1D462"></use></g><g data-mml-node="mi" transform="translate(572,0)"><use data-c="1D461" xlink:href="#MJX-1-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(933,0)"><use data-c="1D456" xlink:href="#MJX-1-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(1278,0)"><use data-c="1D459" xlink:href="#MJX-1-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(1576,0)"><use data-c="1D460" xlink:href="#MJX-1-TEX-I-1D460"></use></g><g data-mml-node="mo" transform="translate(2045,0)"><use data-c="2E" xlink:href="#MJX-1-TEX-N-2E"></use></g><g data-mml-node="mi" transform="translate(2489.7,0)"><use data-c="1D45D" xlink:href="#MJX-1-TEX-I-1D45D"></use></g><g data-mml-node="mi" transform="translate(2992.7,0)"><use data-c="1D466" xlink:href="#MJX-1-TEX-I-1D466"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mi>t</mi><mi>i</mi><mi>l</mi><mi>s</mi><mo>.</mo><mi>p</mi><mi>y</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">utils.py</script><span>）</span></p><ul><li><p><span>删除代码中的注释</span></p></li><li><p><span>删除无法将代码解析为抽象语法树的示例。</span></p></li><li><p><span>删除文档 #tokens 为 &lt; 3 或 &gt;256 的示例</span></p></li><li><p><span>删除文档包含特殊标记的示例（例如 &lt;img ...&gt; 或 https：...）</span></p></li><li><p><span>删除文档不是英文的示例。</span></p></li></ul><p><span>最后经过实验发现该模型实现了最先进的性能。</span></p><p><span>该模型首先将数据集生成对应语言的DFG (</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="8.599ex" height="2.059ex" role="img" focusable="false" viewBox="0 -705 3800.7 910" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.464ex;"><defs><path id="MJX-2-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-2-TEX-I-1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path><path id="MJX-2-TEX-I-1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path><path id="MJX-2-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-2-TEX-I-1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path id="MJX-2-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-2-TEX-I-1D437"></use></g><g data-mml-node="mi" transform="translate(828,0)"><use data-c="1D439" xlink:href="#MJX-2-TEX-I-1D439"></use></g><g data-mml-node="mi" transform="translate(1577,0)"><use data-c="1D43A" xlink:href="#MJX-2-TEX-I-1D43A"></use></g><g data-mml-node="mo" transform="translate(2363,0)"><use data-c="2E" xlink:href="#MJX-2-TEX-N-2E"></use></g><g data-mml-node="mi" transform="translate(2807.7,0)"><use data-c="1D45D" xlink:href="#MJX-2-TEX-I-1D45D"></use></g><g data-mml-node="mi" transform="translate(3310.7,0)"><use data-c="1D466" xlink:href="#MJX-2-TEX-I-1D466"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi><mi>F</mi><mi>G</mi><mo>.</mo><mi>p</mi><mi>y</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">DFG.py</script><span>)，再将代码转换为特征，用于训练机器学习模型，最后训练模型并对模型进行评估，打印评估结果。</span></p><p><span>该模型的主要创新点便是DFG，例如：</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">bubble_sort</span>(<span class="cm-variable">lst</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">'''</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  Sorts a list of integers using bubble sort.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  '''</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-builtin">len</span>(<span class="cm-variable">lst</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">n</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">j</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">0</span>, <span class="cm-variable">n</span><span class="cm-operator">-</span><span class="cm-variable">i</span><span class="cm-operator">-</span><span class="cm-number">1</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span>] <span class="cm-operator">&gt;</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>] :</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">lst</span>[<span class="cm-variable">j</span>], <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>], <span class="cm-variable">lst</span>[<span class="cm-variable">j</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">lst</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 202px;"></div><div class="CodeMirror-gutters" style="height: 202px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>经过testDemo.ipynb处理后得到数据集，我们需要的部分为original_string和docstring_tokens部分。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 37px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>5</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">original_string部分：</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">bubble_sort</span>(<span class="cm-variable">lst</span>):\<span class="cm-variable">n</span> &nbsp; &nbsp;<span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-builtin">len</span>(<span class="cm-variable">lst</span>)\<span class="cm-variable">n</span> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">n</span>):\<span class="cm-variable">n</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">j</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">0</span>, <span class="cm-variable">n</span><span class="cm-operator">-</span><span class="cm-variable">i</span><span class="cm-operator">-</span><span class="cm-number">1</span>):\<span class="cm-variable">n</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span>] <span class="cm-operator">&gt;</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>] :\<span class="cm-variable">n</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">lst</span>[<span class="cm-variable">j</span>], <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>] <span class="cm-operator">=</span> <span class="cm-variable">lst</span>[<span class="cm-variable">j</span><span class="cm-operator">+</span><span class="cm-number">1</span>], <span class="cm-variable">lst</span>[<span class="cm-variable">j</span>]\<span class="cm-variable">n</span> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">lst</span>\<span class="cm-variable">n</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">docstring_tokens部分：</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[<span class="cm-string">"Sorts"</span>, <span class="cm-string">"a"</span>, <span class="cm-string">"list"</span>, <span class="cm-string">"of"</span>, <span class="cm-string">"integers"</span>, <span class="cm-string">"using"</span>, <span class="cm-string">"bubble"</span>, <span class="cm-string">"sort"</span>, <span class="cm-string">"."</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 141px;"></div><div class="CodeMirror-gutters" style="height: 141px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div></div></div></div></pre><p><span>首先逐个记录出现的变量，并用左闭右开的集合保存入dfg_to_code，再根据这个变量由哪些变量得到绘制出dfg_to_dfg</span></p><h3 id='unixcoder跨模态预训练模型）'><span>Unixcoder（跨模态预训练模型）</span></h3><p><span>一、模型概述</span></p><p><span>1.本模型支持与coding相关的代码理解和生成任务。</span></p><p><span>2.模型分类</span>
+<span>(1)unixcoder-base-unimodal： 在 C4 和 CodeSearchNet 数据集（不含 NL）上进行预训练</span>
+<span>(2)unixcoder-base： 继续在 CodeSearchNet 数据集的 NL-PL 对上预训练 unixcoder-base-unimodal。该模型可支持六种语言java、ruby、python、php、javascript 和 go。</span>
+<span>(3)unixcoder-base-nine： 继续在 CodeSearchNet 数据集的 NL-PL 对和额外的 150 万个 C、C++ 和 C# 编程语言的 NL-PL 对上预训练。该模型可支持九种语言java、ruby、python、php、javascript、go、c、c++ 和 c#。</span></p><p><span>3.安装依赖</span>
+<span>pytorch库，和transformers库</span>
+<span>示例代码：</span>
+<span>def </span><em><span>init</span></em><span>:构建 UniXcoder 模型的各个组件，并对一些属性进行初始化设置。</span></p><p><span>二、模型示例</span></p><p><span>以下部分的示例代码给出了不同模式下多个任务的零拍示例，包括代码搜索（仅编码器）、代码补全（仅解码器）、函数名称预测（编码器-解码器）、API 推荐（编码器-解码器）、代码总结（编码器-解码器）</span>
+<span>（1）仅编码器</span>
+<span>示例：代码搜索</span>
+<span>对给定的函数字符串进行编码，并获取其对应的嵌入向量。</span>
+<span>最大值函数，最小值函数，自然语言函数</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>32</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">### Encode maximum function</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">func</span> <span class="cm-operator">=</span> <span class="cm-string">"def f(a,b): if a&gt;b: return a else return b"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">tokenize</span>([<span class="cm-variable">func</span>],<span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">512</span>,<span class="cm-variable">mode</span><span class="cm-operator">=</span><span class="cm-string">"\&lt;encoder-only&gt;"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">source_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">tensor</span>(<span class="cm-variable">tokens_ids</span>).<span class="cm-property">to</span>(<span class="cm-variable">device</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_embeddings</span>,<span class="cm-variable">max_func_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>(<span class="cm-variable">source_ids</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">### Encode minimum function</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">func</span> <span class="cm-operator">=</span> <span class="cm-string">"def f(a,b): if a&lt;b: return a else return b"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">tokenize</span>([<span class="cm-variable">func</span>],<span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">512</span>,<span class="cm-variable">mode</span><span class="cm-operator">=</span><span class="cm-string">"\&lt;encoder-only&gt;"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">source_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">tensor</span>(<span class="cm-variable">tokens_ids</span>).<span class="cm-property">to</span>(<span class="cm-variable">device</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_embeddings</span>,<span class="cm-variable">min_func_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>(<span class="cm-variable">source_ids</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">### Encode NL</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">nl</span> <span class="cm-operator">=</span> <span class="cm-string">"return maximum value"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">tokenize</span>([<span class="cm-variable">nl</span>],<span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">512</span>,<span class="cm-variable">mode</span><span class="cm-operator">=</span><span class="cm-string">"\&lt;encoder-only&gt;"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">source_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">tensor</span>(<span class="cm-variable">tokens_ids</span>).<span class="cm-property">to</span>(<span class="cm-variable">device</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_embeddings</span>,<span class="cm-variable">nl_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>(<span class="cm-variable">source_ids</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">max_func_embedding</span>.<span class="cm-property">shape</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">max_func_embedding</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#### the outcome of the print</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">torch</span>.<span class="cm-property">Size</span>([<span class="cm-number">1</span>, <span class="cm-number">768</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tensor</span>([[ <span class="cm-number">8.6533e-01</span>, <span class="cm-operator">-</span><span class="cm-number">1.9796e+00</span>, <span class="cm-operator">-</span><span class="cm-number">8.6849e-01</span>, &nbsp;<span class="cm-number">4.2652e-01</span>, <span class="cm-operator">-</span><span class="cm-number">5.3696e-01</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">-</span><span class="cm-number">1.5521e-01</span>, &nbsp;<span class="cm-number">5.3770e-01</span>, &nbsp;<span class="cm-number">3.4199e-01</span>, &nbsp;<span class="cm-number">3.6305e-01</span>, <span class="cm-operator">-</span><span class="cm-number">3.9391e-01</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">-</span><span class="cm-number">1.1816e+00</span>, &nbsp;<span class="cm-number">2.6010e+00</span>, <span class="cm-operator">-</span><span class="cm-number">7.7133e-01</span>, &nbsp;<span class="cm-number">1.8441e+00</span>, &nbsp;<span class="cm-number">2.3645e+00</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span> <span class="cm-operator">...</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">-</span><span class="cm-number">2.9188e+00</span>, &nbsp;<span class="cm-number">1.2555e+00</span>, <span class="cm-operator">-</span><span class="cm-number">1.9953e+00</span>, <span class="cm-operator">-</span><span class="cm-number">1.9795e+00</span>, &nbsp;<span class="cm-number">1.7279e+00</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">6.4590e-01</span>, <span class="cm-operator">-</span><span class="cm-number">5.2769e-02</span>, &nbsp;<span class="cm-number">2.4965e-01</span>, &nbsp;<span class="cm-number">2.3962e-02</span>, &nbsp;<span class="cm-number">5.9996e-02</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">2.5659e+00</span>, &nbsp;<span class="cm-number">3.6533e+00</span>, &nbsp;<span class="cm-number">2.0301e+00</span>]], <span class="cm-variable">device</span><span class="cm-operator">=</span><span class="cm-string">'cuda:0'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; <span class="cm-variable">grad_fn</span><span class="cm-operator">=</span>\<span class="cm-operator">&lt;</span><span class="cm-variable">DivBackward0</span><span class="cm-operator">&gt;</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 646px;"></div><div class="CodeMirror-gutters" style="height: 646px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>现在，我们计算 NL （自然语言）和两个函数之间的余弦相似度（通过对嵌入向量归一化）。虽然两个函数的差值只是一个运算符（&lt; 和 &gt;），但 UniXcoder 可以将它们区分开来。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>15</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">### Normalize embedding</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">norm_max_func_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">nn</span>.<span class="cm-property">functional</span>.<span class="cm-property">normalize</span>(<span class="cm-variable">max_func_embedding</span>, <span class="cm-variable">p</span><span class="cm-operator">=</span><span class="cm-number">2</span>, <span class="cm-variable">dim</span><span class="cm-operator">=</span><span class="cm-number">1</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">norm_min_func_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">nn</span>.<span class="cm-property">functional</span>.<span class="cm-property">normalize</span>(<span class="cm-variable">min_func_embedding</span>, <span class="cm-variable">p</span><span class="cm-operator">=</span><span class="cm-number">2</span>, <span class="cm-variable">dim</span><span class="cm-operator">=</span><span class="cm-number">1</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">norm_nl_embedding</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">nn</span>.<span class="cm-property">functional</span>.<span class="cm-property">normalize</span>(<span class="cm-variable">nl_embedding</span>, <span class="cm-variable">p</span><span class="cm-operator">=</span><span class="cm-number">2</span>, <span class="cm-variable">dim</span><span class="cm-operator">=</span><span class="cm-number">1</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">max_func_nl_similarity</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">einsum</span>(<span class="cm-string">"ac,bc-&gt;ab"</span>,<span class="cm-variable">norm_max_func_embedding</span>,<span class="cm-variable">norm_nl_embedding</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">min_func_nl_similarity</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">einsum</span>(<span class="cm-string">"ac,bc-&gt;ab"</span>,<span class="cm-variable">norm_min_func_embedding</span>,<span class="cm-variable">norm_nl_embedding</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">max_func_nl_similarity</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">min_func_nl_similarity</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#### the outcome of the max_func_nl_similarity and min_func_nl_similarity</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tensor</span>([[<span class="cm-number">0.3002</span>]], <span class="cm-variable">device</span><span class="cm-operator">=</span><span class="cm-string">'cuda:0'</span>, <span class="cm-variable">grad_fn</span><span class="cm-operator">=</span>\<span class="cm-operator">&lt;</span><span class="cm-variable">ViewBackward</span><span class="cm-operator">&gt;</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tensor</span>([[<span class="cm-number">0.1881</span>]], <span class="cm-variable">device</span><span class="cm-operator">=</span><span class="cm-string">'cuda:0'</span>, <span class="cm-variable">grad_fn</span><span class="cm-operator">=</span>\<span class="cm-operator">&lt;</span><span class="cm-variable">ViewBackward</span><span class="cm-operator">&gt;</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 383px;"></div><div class="CodeMirror-gutters" style="height: 383px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>可以看到，最大值函数与nl函数的余弦相似度为0.3002，而最小值函数与nl函数的余弦相似度仅为0.1881</span>
+<span>（2）仅解码器</span>
+<span>示例：代码补全</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>17</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">context</span> <span class="cm-operator">=</span> <span class="cm-string">"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">def f(data,file_path):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  # write json data into file_path in python language</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">tokenize</span>([<span class="cm-variable">context</span>],<span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">512</span>,<span class="cm-variable">mode</span><span class="cm-operator">=</span><span class="cm-string">"\&lt;decoder-only&gt;"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">source_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">tensor</span>(<span class="cm-variable">tokens_ids</span>).<span class="cm-property">to</span>(<span class="cm-variable">device</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">prediction_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">generate</span>(<span class="cm-variable">source_ids</span>, <span class="cm-variable">decoder_only</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>, <span class="cm-variable">beam_size</span><span class="cm-operator">=</span><span class="cm-number">3</span>, <span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">128</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">predictions</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">decode</span>(<span class="cm-variable">prediction_ids</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">context</span><span class="cm-operator">+</span><span class="cm-variable">predictions</span>[<span class="cm-number">0</span>][<span class="cm-number">0</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#### the outcome of the print</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">f</span>(<span class="cm-variable">data</span>,<span class="cm-variable">file_path</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment"># write json data into file_path in python language</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">data</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">dumps</span>(<span class="cm-variable">data</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">with</span> <span class="cm-builtin">open</span>(<span class="cm-variable">file_path</span>, <span class="cm-string">'w'</span>) <span class="cm-keyword">as</span> <span class="cm-variable">f</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">f</span>.<span class="cm-property">write</span>(<span class="cm-variable">data</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 363px;"></div><div class="CodeMirror-gutters" style="height: 363px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>通过给定的上下文文本利用模型做出预测，输出也是将data转换为json格式的字符串并写入对应文件路径里。</span>
+<span>（3）解码-编码模式</span>
+<span>示例：函数名称预测，api推荐，代码总结</span>
+<span>首先，函数名被用 </span><span>&lt;</span><span>mask0&gt; 代替，然后经过模型的编码和解码，做出预测之后，将predictions[0]返回到相应位置（以下为示例代码）</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>15</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">context</span> <span class="cm-operator">=</span> <span class="cm-string">"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">def \&lt;mask0&gt;(data,file_path):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  data = json.dumps(data)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  with open(file_path, 'w') as f:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  f.write(data)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">tokens_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">tokenize</span>([<span class="cm-variable">context</span>],<span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">512</span>,<span class="cm-variable">mode</span><span class="cm-operator">=</span><span class="cm-string">"\&lt;encoder-decoder&gt;"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">source_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">torch</span>.<span class="cm-property">tensor</span>(<span class="cm-variable">tokens_ids</span>).<span class="cm-property">to</span>(<span class="cm-variable">device</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">prediction_ids</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">generate</span>(<span class="cm-variable">source_ids</span>, <span class="cm-variable">decoder_only</span><span class="cm-operator">=</span><span class="cm-keyword">False</span>, <span class="cm-variable">beam_size</span><span class="cm-operator">=</span><span class="cm-number">3</span>, <span class="cm-variable">max_length</span><span class="cm-operator">=</span><span class="cm-number">128</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">predictions</span> <span class="cm-operator">=</span> <span class="cm-variable">model</span>.<span class="cm-property">decode</span>(<span class="cm-variable">prediction_ids</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>([<span class="cm-variable">x</span>.<span class="cm-property">replace</span>(<span class="cm-string">"\&lt;mask0&gt;"</span>,<span class="cm-string">""</span>).<span class="cm-property">strip</span>() <span class="cm-keyword">for</span> <span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-variable">predictions</span>[<span class="cm-number">0</span>]])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#### the outcome of the print</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[<span class="cm-string">'write_json'</span>, <span class="cm-string">'write_file'</span>, <span class="cm-string">'to_json'</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 343px;"></div><div class="CodeMirror-gutters" style="height: 343px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>结果符合预期的函数名称。</span>
+<span>其次，函数体当中的data函数被 </span><span>&lt;</span><span>mask0&gt; 代替，预测之后的结果即为可能的API，预测的函数为json的函数调用，包括dumps，loads</span>
+<span>然后，函数体的注释被 </span><span>&lt;</span><span>mask0&gt; 代替，预测之后的结果为“将json写入文件”类似英文内容。</span></p><p><span>三、预训练任务：（Fine-tune）</span></p><ol><li><p><span>数据集下载</span></p></li></ol><p><span>根据微软官方文档的提示，我们已经下载好了三个数据集，分别是Advtest（仅包含python代码的数据集），CSN（包含六种语言java、ruby、python、php、javascript 和 go的数据集）， CosQA （微软必应搜索引擎的 20,604 个搜索日志）。</span></p><ol start='2' ><li><p><span>Zero-shot Setting</span></p></li></ol><p><span>我们首先提供了零次代码搜索的脚本（即评估预训练之前的数据集）。本部分的源模型来自于microsoft/unixcoder-base，我们将直接在这个模型上进行test和evaluate。我们使用的代码和 nl 之间的相似度是 UniXcoder 隐藏状态的余弦距离。</span>
+<span>零样本学习指的是在数据集没有经过训练之前的一次评估，我们可以根据训练前后的评估结果来对模型的预训练效果进行评测。</span>
+<span>以Advtest数据集为例，我们可以看到对run.py文件中的一些参数设置：</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="shell" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>14</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">python run.py \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--output_dir</span> saved_models/AdvTest \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--model_name_or_path</span> microsoft/unixcoder-base  \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--do_zero_shot</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--do_test</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--test_data_file</span> dataset/AdvTest/test.jsonl \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--codebase_file</span> dataset/AdvTest/test.jsonl \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--num_train_epochs</span> <span class="cm-number">2</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--code_length</span> <span class="cm-number">256</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--nl_length</span> <span class="cm-number">128</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--train_batch_size</span> <span class="cm-number">64</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--eval_batch_size</span> <span class="cm-number">64</span> \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--learning_rate</span> 2e-5 \</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">--seed</span> <span class="cm-number">123456</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 282px;"></div><div class="CodeMirror-gutters" style="height: 282px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p><span>可以看到，在zero-shot设置中，仅有--do_test和--do_zero_shot两项，并不包含--do_train.</span>
+<span>在pycharm上运行之后的结果如下：eval_mrr=0.431（评测满分为1分）。</span></p><ol start='3' ><li><p><span>预处理数据格式</span></p></li></ol><p><span>这里以Advtest数据集为例，该数据集主要提供python语言的代码，数据格式如下：</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 15.0833px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>13</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{ &nbsp; </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">repo</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">path</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">func_name</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">original_string</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">language</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">code</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">code_tokens</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">docstring</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">docstring_tokens</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">sha</span>:<span class="cm-string">"..."</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 24px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">url</span>:<span class="cm-string">"..."</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 24px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 262px;"></div><div class="CodeMirror-gutters" style="height: 262px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 32px;"></div></div></div></div></pre><p>&nbsp;</p><div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> <span>GRAPHCODEBERT: PRE-TRAINING CODE REPRESENTATIONS WITH DATA FLOW (Published as a conference paper at ICLR 2021)</span> <a name='dfref-footnote-1' href='#ref-footnote-1' title='回到文档' class='reversefootnote' >↩</a></div></div></div></div>
+</body>
+</html>

@@ -1,0 +1,461 @@
+\documentclass[12pt]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\geometry{a4paper,left=2.58cm,right=2.58cm,top=1.5cm,bottom=3.54cm}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=10pt,
+  tabsize=2,
+  extendedchars=true,
+  breaklines=true,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  xleftmargin=2.5em,
+  frame=single,
+  rulecolor=\color{black},
+  captionpos=b,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  xleftmargin=2em,
+  framexleftmargin=1.5em
+}
+\pagestyle{fancy}
+\chead{}
+\lhead{中期检查报告} 
+\rfoot{}
+\lfoot{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{\vspace{3em}\kaishu 基于深度学习的\\
+源代码错误定位\\
+\vspace{1em}
+\songti 中期检查报告\\
+\vspace{18em}
+}
+\author{吴清晏；杨锦波；张闻启；董子翔；万奕含}
+\date{2024/4/10}
+
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-2.5pt}
+
+\begin{document}
+%%%%%%%%%%%%%%%封面%%%%%%%%%%%%%%%%%%
+\maketitle
+\thispagestyle{empty}
+\clearpage
+%%%%%%%%%%%%%%%目录%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+%%%%%%%%%%%%%%正文%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{1}
+\thispagestyle{empty}
+\includepdf[pagecommand={\thispagestyle{plain}\setcounter{page}{1}\phantomsection\addcontentsline{toc}{section}{\numberline{\thesection}文献综述}}]{main.pdf}
+\setcounter{page}{2}
+\includepdf[pages=2-5,pagecommand={\thispagestyle{plain}}]{main.pdf}
+\setcounter{page}{6}
+\section{前期项目研究总结}
+\subsection{数据集获取}
+
+数据集获取是本项目的重要组成部分，是复现模型、改进模型的前提和基础。在项目的前中期，我们已经完成了数据集选取和预处理，以及数据集的分析等任务。下面，本总结将从数据集选取、数据集处理和数据集分析三个方面来阐述本项目在数据集方面前中期的进展。
+
+\subsection*{一、数据集选取}
+\addcontentsline{toc}{subsubsection}{一、数据集选取}
+\begin{enumerate}
+      \item
+            网络爬虫获取数据集的局限性
+
+            开题时我们计划使用python爬虫爬取Github开源项目的错误报告来搭建数据集，但在实践中，我们无法发现git命令可以更方便的获取代码修改历史和更新日志。此外，我们发现大型项目常使用Bugzilla等错误跟踪系统，包括我们需要的错误报告信息。这些都是Python爬虫很难直接获取的。
+      \item
+            选择Ye等人搭建的数据集的原因
+
+            该数据集通常被各种最先进的算法使用，且数据全面，包含错误的自然语言描述、修改前后的错误代码、项目作者和错误代码提交记录等信息。
+      \item
+            数据集基本介绍
+
+            该数据集的错误报告来自AspectJ、Birt、Eclipse、JDT、SWT、Tomcat六个java开发平台，共有超过22000个详细的错误报告。
+\end{enumerate}
+
+\subsection*{二、数据集处理}
+\addcontentsline{toc}{subsubsection}{二、数据集处理}
+Bugzilla提供的错误报告为xml格式，仅包含错误描述，提交时间和错误文件路径等信息，并不包含错误源代码。所以，我们使用git命令获取必要的信息。
+
+首先，获取有修改的代码，并通过``文件路径：代码内容'' 方式存储。
+\begin{lstlisting}[language=Python]
+def retrieve_diff(repository, commit, ext='.java'):
+  cmd = 'git -C'+repository+'diff-tree -r'+commit
+  files = {}
+  diff_tree_lines=subprocess.Popen(cmd).stdout.read().split('\n')
+  for line in iter(diff_tree_lines):
+      filepath = line.rstrip()
+      files[filepath] = retrieve_diff_on_filepath(repository, commit, filepath)
+  return files
+\end{lstlisting}
+该函数先获取被修改文件的路径，再调用 \texttt{retrieve\_diff\_on\_filepath} 函数获取每个文件的被修改代码，最后以键值对的形式保存文件路径和相应代码。
+\begin{lstlisting}[language=Python]
+def retrieve_diff_on_filepath(repository, commit, filepath):
+    cmd='git -C' + repository + 'diff' + commit + filepath
+    diff_lines=subprocess.Popen(cmd).stdout.read()
+    return diff_lines
+\end{lstlisting}
+
+接下来，获取作者，日期，提交信息等元数据。
+\begin{lstlisting}[language=Python]
+def retrieve_metadata(repository, commit): 
+  full_sha = None
+  author = None
+  date = None
+  message = ''
+  cmd = 'git -C ' + repository + ' show -s ' + commit
+  show_lines = subprocess.Popen(cmd).stdout.read().split('\n')
+  for index, line in enumerate(show_lines):
+      if index == 0:
+          full_sha = line
+      elif index == 1:
+          author = line
+      elif index == 2:
+          date = line
+      else:
+          message += line
+  metadata = {'sha': full_sha, 'author': author, 'date': date, 'message': message}
+  return metadata
+\end{lstlisting}
+最后，我们把获取的信息保存为json格式，供后续训练模型使用。
+\begin{lstlisting}[language=Python]
+def main():
+      bug_reports_file = sys.argv[1]
+      repository = sys.argv[2]
+      json_file_name = sys.argv[3]
+      dataset = load_dataset(bug_reports_file, repository)
+      with open(json_file_name, 'w') as f:
+          dump(dataset, f)
+\end{lstlisting}
+这样，我们就成功构建了一个包含代码路径信息和错误报告内容等信息的数据集。
+
+\subsection*{三、数据集分析}
+\addcontentsline{toc}{subsubsection}{三、数据集分析}
+这是一个处理后的数据集个体实例
+
+\begin{enumerate}
+      \item
+            `bug\_report'部分
+\end{enumerate}
+
+\begin{lstlisting}
+"bug_id": "111915",
+"status": "resolved fixed",
+"result": "7:/aspectj/systemtest/ajc150/Ajc150Tests.java",
+"timestamp": "1128700000",
+"commit": "3021284",
+"description": "BCException thrown: illegal change to pointcut",
+"id": "335",
+"summary": "Bug 111915  illegal change to pointcut declaration",
+"preceding_commit": "bba983e0afce48d09316b46a72dbe6d2ae4c14b4",
+\end{lstlisting}
+
+其中\textquotesingle description\textquotesingle 是对错误的自然语言描述；\textquotesingle summary\textquotesingle 是对错误概括：
+\textquotesingle Bug 111915 illegal change to pointcut declaration\textquotesingle，表示的错误是“切入点声明的非法更改”。
+
+\begin{enumerate}[resume]
+      \item
+            \textquotesingle commit\textquotesingle 部分
+\end{enumerate}
+
+\begin{lstlisting}
+"diff": {
+aspectj/systemtest/ajc150/Ajc150Tests.java:
+index a6f8acb461..1aabffea64 100644
+--- aspectj/systemtest/ajc150/Ajc150Tests.java
++++ aspectj/systemtest/ajc150/Ajc150Tests.java
+@@ -487,0 +488,4 @@ public class Ajc150Tests
++  public void testIllegalChangeToPointcutDeclaration_pr111915(){
++    runTest("test illegal change to pointcut declaration");
++  }
+
+"metadata": {
+  "date": "Fri Oct 21 06:56:11 2005 +0000",
+  "sha": "3021284f5d910a406d26a01ce836bbb5f5cd6bfc",
+  "message": "test and fix for pr111915",
+  "author": "aclement <aclement>",
+  "timestamp": 1129877771.0
+},
+\end{lstlisting}
+\textquotesingle diff\textquotesingle 部分为修改前后的错误代码和路径，\textquotesingle metadata\textquotesingle 部分存储了作者、日期、时间等信息。
+
+3.\textquotesingle view\textquotesingle 部分：
+
+\begin{lstlisting}
+'bug_fixing':{
+  "tests/bugs150/pr109042.aj": {
+    "recency_timedelta[s]": 2511442,
+    "recency[30-day months]": 1.0,
+    "frequency": 1,
+    "br": ["08d6a5d"]
+  }
+  (还有897个相同结构，此处省去)
+}
+\end{lstlisting}
+
+该部分记录错误代码的提交记录。
+
+\subsection*{四、总结}
+\addcontentsline{toc}{subsubsection}{四、总结}
+
+我们在项目前中期搭建完成的数据集是以json的格式存储的，包含错误报告、错误代码、作者和提交记录的详细信息。
+
+\subsection{预训练模型选择}
+
+在自然语言处理中，预训练+微调是一种常见的模型训练方法。预训练可以提升模型的泛化能力，微调可以使模型适应特定任务。在项目的前中期，我们选择了codeBERT、GraphCodeBERT和Unixcoder三个预训练模型，用于源代码错误定位任务。
+
+\subsection*{一、codeBERT模型}
+\addcontentsline{toc}{subsubsection}{一、codeBERT模型}
+
+CodeBERT是一个基于RoBERTa的预训练模型，专门用于源代码相关的任务。CodeBERT模型的输入是代码片段和自然语言描述，输出是代码片段和自然语言描述的相似度。与GraphCodeBERT模型不同，CodeBERT模型的代码片段只是通过Treesitter提供的抽象语法树进行简单处理后便进行向量化，并与自然语言RoBERTa向量化结果进行简单拼接。这种方式会丢弃大量的语义信息，有很多潜在的优化方向。
+
+\subsection*{二、GraphCodeBert模型}
+\addcontentsline{toc}{subsubsection}{二、GraphCodeBert模型}
+
+GraphCodeBERT模型没有考虑抽象语法树，而是采用了DFG(数据流向图)。数据流向图是一个有向图，代表了每个变量的值从哪里来到哪里去的关系。
+
+为了显示GraphCodeBERT的有效性，作者进行了四项下游任务，包括了代码搜索、克隆检测、代码翻译和代码改错。而我们所需要的是对源代码的定位，故侧重于代码搜索。\footnote{GRAPHCODEBERT:
+      PRE-TRAINING CODE REPRESENTATIONS WITH DATA FLOW (Published as a
+      conference paper at ICLR 2021)}
+
+代码搜索的任务是通过输入一段自然语言描述，模型输出从代码库中选出一段最符合描述的代码。
+
+该模型首先按照下列方式将过滤数据集以提高质量(\(utils.py\))
+
+\begin{itemize}
+      \item
+            删除代码中的注释
+      \item
+            删除无法将代码解析为抽象语法树的示例。
+      \item
+            删除文档 \#tokens 为 \textless{} 3 或 \textgreater256 的示例
+      \item
+            删除文档包含特殊标记的示例(例如 \textless img ...\textgreater{} 或
+            https：...)
+      \item
+            删除文档不是英文的示例。
+\end{itemize}
+
+最后经过实验发现该模型实现了最先进的性能。
+
+该模型首先将数据集生成对应语言的DFG
+(\(DFG.py\))，再将代码转换为特征，用于训练机器学习模型，最后训练模型并对模型进行评估，打印评估结果。
+
+该模型的主要创新点便是DFG，例如：
+
+\begin{lstlisting}[language=Python]
+def bubble_sort(lst):
+      '''
+      Sorts a list of integers using bubble sort.
+      '''
+      n = len(lst)
+      for i in range(n):
+          for j in range(0, n-i-1):
+              if lst[j] > lst[j+1] :
+                  lst[j], lst[j+1] = lst[j+1], lst[j]
+      return lst
+\end{lstlisting}
+
+
+经过预处理后得到数据集，我们需要的部分为original\_string和docstring\_tokens。
+original\_string部分与原始代码相同，docstring\_tokens部分就是注释的简单分隔。
+\begin{lstlisting}
+["Sorts","a","list","of","integers","using","bubble","sort","."]
+\end{lstlisting}
+
+首先逐个记录出现的变量，并用左闭右开的集合保存入dfg\_to\_code，再根据这个变量由哪些变量得到绘制出dfg\_to\_dfg
+
+\subsection*{三、Unixcoder(跨模态预训练模型)}
+\addcontentsline{toc}{subsubsection}{三、Unixcoder(跨模态预训练模型)}
+
+\subsubsection*{（1）模型概述}
+\addcontentsline{toc}{subsubsection}{（1）模型概述}
+
+\begin{enumerate}
+      \item
+            unixcoder-base-unimodal：
+
+            在 C4 和 CodeSearchNet 数据集(不含
+            NL)上进行预训练
+      \item
+            unixcoder-base：
+
+            继续在 CodeSearchNet 数据集的 NL-PL 对上预训练
+      \item
+            unixcoder-base-nine：
+
+            继续在 CodeSearchNet 数据集的 NL-PL 对和额外的
+            150 万个 C、C++ 和 C\# 编程语言的 NL-PL
+            对上预训练。该模型可支持九种语言java、ruby、python、php、javascript、go、c、c++
+            和 c\#。
+\end{enumerate}
+
+\subsubsection*{（2）模型示例}
+\addcontentsline{toc}{subsubsection}{（2）模型示例}
+
+以下部分的示例代码给出了仅编码器模式下代码搜索任务的零拍示例。
+\begin{lstlisting}[language=Python]
+### Encode maximum function
+func = "def f(a,b): if a>b: return a else return b"
+tokens_ids = model.tokenize([func],mode="\<encoder-only>")
+source_ids = torch.tensor(tokens_ids).to(device)
+tokens_embeddings,max_func_embedding = model(source_ids)
+\end{lstlisting}
+\begin{lstlisting}[language=Python]
+### Encode minimum function
+func = "def f(a,b): if a<b: return a else return b"
+tokens_ids = model.tokenize([func],mode="\<encoder-only>")
+source_ids = torch.tensor(tokens_ids).to(device)
+tokens_embeddings,min_func_embedding = model(source_ids)
+\end{lstlisting}
+\begin{lstlisting}[language=Python]
+### Encode NL
+nl = "return maximum value"
+tokens_ids = model.tokenize([nl],mode="\<encoder-only>")
+source_ids = torch.tensor(tokens_ids).to(device)
+tokens_embeddings,nl_embedding = model(source_ids)
+\end{lstlisting}
+以最大值函数为例，模型输出如下：
+\begin{lstlisting}[language=Python]
+print(max_func_embedding.shape)
+
+#### the outcome of the print
+torch.Size([1, 768])
+\end{lstlisting}
+现在，我们对嵌入向量归一化并计算 NL(自然语言)和两个函数之间的余弦相似度。虽然两个函数的差值只是一个运算符(\textless{}
+和 \textgreater)，但 UniXcoder 可以将它们区分开来。
+
+\begin{lstlisting}[language=Python]
+### Normalize embedding
+norm_max_func_embedding = torch.nn.functional.normalize(max_func_embedding, p=2, dim=1)
+norm_min_func_embedding = torch.nn.functional.normalize(min_func_embedding, p=2, dim=1)
+norm_nl_embedding = torch.nn.functional.normalize(nl_embedding, p=2, dim=1)
+
+max_func_nl_similarity = torch.einsum("ac,bc->ab",norm_max_func_embedding,norm_nl_embedding)
+min_func_nl_similarity = torch.einsum("ac,bc->ab",norm_min_func_embedding,norm_nl_embedding)
+
+print(max_func_nl_similarity)
+print(min_func_nl_similarity)
+\end{lstlisting}
+可以看到，最大值函数与nl函数的余弦相似度为0.3002，而最小值函数与nl函数的余弦相似度仅为0.1881.
+\begin{lstlisting}[language=Python]
+#### the outcome of the max_func_nl_similarity and min_func_nl_similarity
+
+tensor([[0.3002]], device='cuda:0', grad_fn=\<ViewBackward>)
+tensor([[0.1881]], device='cuda:0', grad_fn=\<ViewBackward>)
+\end{lstlisting}
+
+\subsubsection*{（3）预训练任务：(Fine-tune)}
+\addcontentsline{toc}{subsubsection}{（3）预训练任务：(Fine-tune)}
+
+\begin{enumerate}
+      \item
+            数据集下载
+\end{enumerate}
+
+根据微软官方文档的提示，我们已经下载好了三个数据集，分别是Advtest(仅包含python代码的数据集)，CSN(包含六种语言java、ruby、python、php、javascript
+和 go的数据集)， CosQA (微软必应搜索引擎的 20,604 个搜索日志)。
+
+\begin{enumerate}[resume]
+      \item
+            Zero-shot Setting
+\end{enumerate}
+零样本学习指的是在数据集没有经过训练之前的一次评估，我们可以根据训练前后的评估结果来对模型的预训练效果进行评测。
+
+以 Advtest 数据集为例，运行结果如下：eval\_mrr=0.595(评测满分为1分)。
+
+\begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{C:/Users/July Wu/Pictures/Screenshots/屏幕截图 2024-04-07 175644.png}
+      \caption{Zero-shot Setting}
+      \label{fig:Zero-shot Setting}
+
+\end{figure}
+\begin{enumerate}[resume]
+      \item
+            预处理数据格式
+\end{enumerate}
+
+这里以Advtest数据集为例，该数据集主要提供python语言的代码，数据格式如下：
+
+\begin{lstlisting}
+{   
+    repo:"...",
+    path:"...",
+    func_name:"...",
+    original_string:"...",
+    language:"...",
+    code:"...",
+    code_tokens:"...",
+    docstring:"...",
+    docstring_tokens:"...",
+    sha:"...",
+    url:"..."
+}
+\end{lstlisting}
+\clearpage
+\section{项目后期研究方案}
+项目下一届阶段计划包括：优化数据集结构，建立混合数据集；修改模型代码，进行迁移训练；应用此前论文提出的其他技术，进一步提高模型性能；评估模型性能，撰写论文。
+\begin{enumerate}
+      \item
+            优化数据集结构，建立混合数据集
+
+            目前，我们已经构建了一个基于错误提交报告的数据集，但这与模型需要的输入还有一定的差距。我们的3个模型分别需要AST抽象语法树，DFG数据流图和向量化的代码文本数据，后续分别需要进行针对性的预处理。此外，这三个模型均已在CodeSeachNet代码搜索数据集上进行预训练，并提供了在6种编程语言上的迁移训练数据。目前我们构建的Java数据集大小还不足以支持大模型的迁移训练，为了避免过拟合现象，我们计划将其与CodeSeachNet提供的Java语言数据集一起构建混合数据集。
+      \item
+            修改模型代码，进行迁移训练
+
+            目前我们的小组成员已经看懂了各自负责的模型代码，并有能力根据我们的需要修改原先的代码，使其可以被用于错误定位任务。模型输入部分，我们需要修改代码，与我们构建的数据集进行格式上的统一。输出部分，由于代码搜索领域常用的评估指标与错误定位领域常用的Top K，MRR，MAP等不同，我们需要修改模型的评估部分代码，使输出符合我们的需求。
+      \item
+            应用此前论文提出的其他技术，进一步提高模型性能
+
+            在完成文献综述的过程中，我们发现此前有许多技术已被证明对提高错误定位有帮助，如2014年一篇论文提到的机器学习领域的Learning to Rank技术和2018年的一篇论文提到信息检索领域的BM25技术。我们会尝试将这些技术与我们的方法相结合，进一步提高模型效果。
+      \item
+            评估模型性能，撰写论文
+
+            静态错误定位领域的基准数据集有2013年Buglocator构建的Java基准集，2014年Ye等人在提出LR技术时的基准集还有2018年Bench4FL评估框架。常用的评估指标有Top k，MAP(平均精度)，MRR(平均倒数轶)等。我们将在这些基准集上采用这些指标进行评估，并与此前研究进行横向比较。此外，两年前提出的DeepFL是目前最先进的基于深度学习的错误定位技术，我们计划在对方使用的数据集上进行评估，比较两者的性能。论文撰写部分，目前已基本完成了一篇基于机器学习的静态错误定位技术的综述，计划在中期后进一步修改并发表。此外，还计划在研究完成后提交一篇CCF推荐的B类以上论文，内容围绕我们在预训练模型上进一步迁移训练后的模型结果。经过前期研究，我们确定该技术路线有一定的可行性。
+\end{enumerate}
+\clearpage
+\section{经费使用安排}
+
+费用主要源于云GPU的使用，以下是3月份东南大学云计算中心导出的费用清单，4月份也进行了一些云计算任务，但是未使用GPU，消耗有限。
+
+\begin{table}[h]
+      \centering
+      \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            CPU(核*时) & CPU费用(元) & GPU(核*时) & GPU费用(元) & 合计消费(元) \\
+            \hline
+            466.88   & 3.35     & 124.39   & 185.58   & 189.93  \\
+            \hline
+      \end{tabular}
+      \caption{3月份东南大学云计算中心费用清单}
+\end{table}
+
+启动经费共400元，后续计划根据经费数额动态调整模型训练参数。根据目前研究情况，选择推荐的批量大小(32)在4个GPU核上并行训练30个小时大约能训练2500步，约处理2500*32*4条训练数据，这与我们目前的训练数据集相当，但是考虑到之后混合数据集的大小，训练时间可能会更长。如果经费有限，我们可能会把精力集中在其中一个模型上，剩余的两个模型只进行Zero-shot评估任务。
+\newpage
+\thispagestyle{empty}
+\includepdf[pagecommand={\phantomsection}]{中期检查表.pdf}
+\addcontentsline{toc}{section}{附录————中期检查表}
+\includepdf[pages=2]{中期检查表.pdf}
+\end{document}

@@ -1,0 +1,163 @@
+\begin{thebibliography}{10}
+
+\bibitem{8906763}
+Sousuke Amasaki, Hirohisa Aman, and Tomoyuki Yokogawa.
+\newblock A comparative study of vectorization methods on buglocator.
+\newblock In {\em 2019 45th Euromicro Conference on Software Engineering and Advanced Applications (SEAA)}, pages 236--243, 2019.
+
+\bibitem{9286037}
+Junming Cao, Shouliang Yang, Wenhui Jiang, Hushuang Zeng, Beijun Shen, and Hao Zhong.
+\newblock Bugpecker: Locating faulty methods with deep learning on revision graphs.
+\newblock In {\em 2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)}, pages 1214--1218, Sep. 2020.
+
+\bibitem{10062428}
+Hao Chen, Haiyang Yang, Zilun Yan, Li~Kuang, and Lingyan Zhang.
+\newblock Cgmbl: Combining gan and method name for bug localization.
+\newblock In {\em 2022 IEEE 22nd International Conference on Software Quality, Reliability and Security (QRS)}, pages 231--241, 2022.
+
+\bibitem{7961521}
+Tung Dao, Lingming Zhang, and Na~Meng.
+\newblock How does execution information help with information-retrieval based bug localization?
+\newblock In {\em 2017 IEEE/ACM 25th International Conference on Program Comprehension (ICPC)}, pages 241--250, 2017.
+
+\bibitem{2020CodeBERT}
+Zhangyin Feng, Daya Guo, Duyu Tang, Nan Duan, Xiaocheng Feng, Ming Gong, Linjun Shou, Bing Qin, Ting Liu, Daxin Jiang, and Ming Zhou.
+\newblock Codebert: A pre-trained model for programming and natural languages, 2020.
+
+\bibitem{10.1145/3106237.3106290}
+Vincent~J. Hellendoorn and Premkumar Devanbu.
+\newblock Are deep neural networks the best choice for modeling source code?
+\newblock In {\em Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering}, ESEC/FSE 2017, page 763–773, New York, NY, USA, 2017. Association for Computing Machinery.
+
+\bibitem{hill2010integrating}
+Emily Hill.
+\newblock {\em Integrating natural language and program structure information to improve software search and exploration}.
+\newblock University of Delaware, 2010.
+
+\bibitem{6747185}
+Emily Hill, Bunyamin Sisman, and Avinash Kak.
+\newblock On the use of positional proximity in ir-based feature location.
+\newblock In {\em 2014 Software Evolution Week - IEEE Conference on Software Maintenance, Reengineering, and Reverse Engineering (CSMR-WCRE)}, pages 318--322, 2014.
+
+\bibitem{6227135}
+Abram Hindle, Earl~T. Barr, Zhendong Su, Mark Gabel, and Premkumar Devanbu.
+\newblock On the naturalness of software.
+\newblock In {\em 2012 34th International Conference on Software Engineering (ICSE)}, pages 837--847, 2012.
+
+\bibitem{9700273}
+Misoo Kim, Youngkyoung Kim, and Eunseok Lee.
+\newblock A novel automatic query expansion with word embedding for ir-based bug localization.
+\newblock In {\em 2021 IEEE 32nd International Symposium on Software Reliability Engineering (ISSRE)}, pages 276--287, 2021.
+
+\bibitem{8449523}
+Misoo Kim and Eunseok Lee.
+\newblock Poster: Are information retrieval-based bug localization techniques trustworthy?
+\newblock In {\em 2018 IEEE/ACM 40th International Conference on Software Engineering: Companion (ICSE-Companion)}, pages 248--249, 2018.
+
+\bibitem{6982639}
+Tien-Duy~B. Le, Ferdian Thung, and David Lo.
+\newblock Predicting effectiveness of ir-based bug localization techniques.
+\newblock In {\em 2014 IEEE 25th International Symposium on Software Reliability Engineering}, pages 335--345, 2014.
+
+\bibitem{10.1145/3213846.3213856}
+Jaekwon Lee, Dongsun Kim, Tegawend\'{e}~F. Bissyand\'{e}, Woosung Jung, and Yves Le~Traon.
+\newblock Bench4bl: reproducibility study on the performance of ir-based bug localization.
+\newblock In {\em Proceedings of the 27th ACM SIGSOFT International Symposium on Software Testing and Analysis}, ISSTA 2018, page 61–72, New York, NY, USA, 2018. Association for Computing Machinery.
+
+\bibitem{Liang2022}
+Hongliang Liang, Dengji Hang, and Xiangyu Li.
+\newblock Modeling function-level interactions for file-level bug localization.
+\newblock {\em Empirical Software Engineering}, 27(7):186, Oct 2022.
+
+\bibitem{8736209}
+Guangliang Liu, Yang Lu, Ke~Shi, Jingfei Chang, and Xing Wei.
+\newblock Mapping bug reports to relevant source code files based on the vector space model and word embedding.
+\newblock {\em IEEE Access}, 7:78870--78881, 2019.
+
+\bibitem{9653844}
+Fangcheng Qiu, Zhipeng Gao, Xin Xia, David Lo, John Grundy, and Xinyu Wang.
+\newblock Deep just-in-time defect localization.
+\newblock {\em IEEE Transactions on Software Engineering}, 48(12):5068--5086, 2022.
+
+\bibitem{10.1145/3183440.3195003}
+Mohammad~Masudur Rahman and Chanchai~K. Roy.
+\newblock Improving bug localization with report quality dynamics and query reformulation.
+\newblock In {\em Proceedings of the 40th International Conference on Software Engineering: Companion Proceeedings}, ICSE '18, page 348–349, New York, NY, USA, 2018. Association for Computing Machinery.
+
+\bibitem{8449572}
+Mohammad~Masudur Rahman and Chanchal Roy.
+\newblock Poster: Improving bug localization with report quality dynamics and query reformulation.
+\newblock In {\em 2018 IEEE/ACM 40th International Conference on Software Engineering: Companion (ICSE-Companion)}, pages 348--349, 2018.
+
+\bibitem{9610655}
+Abdul Razzaq, Jim Buckley, James~Vincent Patten, Muslim Chochlov, and Ashish~Rajendra Sai.
+\newblock Boostnsift: A query boosting and code sifting technique for method level bug localization.
+\newblock In {\em 2021 IEEE 21st International Working Conference on Source Code Analysis and Manipulation (SCAM)}, pages 81--91, 2021.
+
+\bibitem{6976082}
+Ripon~K. Saha, Julia Lawall, Sarfraz Khurshid, and Dewayne~E. Perry.
+\newblock On the effectiveness of information retrieval based bug localization for c programs.
+\newblock In {\em 2014 IEEE International Conference on Software Maintenance and Evolution}, pages 161--170, 2014.
+
+\bibitem{6693093}
+Ripon~K. Saha, Matthew Lease, Sarfraz Khurshid, and Dewayne~E. Perry.
+\newblock Improving bug localization using structured information retrieval.
+\newblock In {\em 2013 28th IEEE/ACM International Conference on Automated Software Engineering (ASE)}, pages 345--355, 2013.
+
+\bibitem{8973028}
+Aoi Takahashi, Natthawute Sae-Lim, Shinpei Hayashi, and Motoshi Saeki.
+\newblock A preliminary study on using code smells to improve bug localization.
+\newblock In {\em 2018 IEEE/ACM 26th International Conference on Program Comprehension (ICPC)}, pages 324--3243, 2018.
+
+\bibitem{NIPS2017_3f5ee243}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N Gomez, \L~ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In I.~Guyon, U.~Von Luxburg, S.~Bengio, H.~Wallach, R.~Fergus, S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information Processing Systems}, volume~30. Curran Associates, Inc., 2017.
+
+\bibitem{7582764}
+Ming Wen, Rongxin Wu, and Shing-Chi Cheung.
+\newblock Locus: Locating bugs from software changes.
+\newblock In {\em 2016 31st IEEE/ACM International Conference on Automated Software Engineering (ASE)}, pages 262--273, 2016.
+
+\bibitem{7390282}
+W.~Eric Wong, Ruizhi Gao, Yihao Li, Rui Abreu, and Franz Wotawa.
+\newblock A survey on software fault localization.
+\newblock {\em IEEE Transactions on Software Engineering}, 42(8):707--740, 2016.
+
+\bibitem{9462960}
+Shouliang Yang, Junming Cao, Hushuang Zeng, Beijun Shen, and Hao Zhong.
+\newblock Locating faulty methods with a mixed rnn and attention model.
+\newblock In {\em 2021 IEEE/ACM 29th International Conference on Program Comprehension (ICPC)}, pages 207--218, 2021.
+
+\bibitem{10.1145/2635868.2635874}
+Xin Ye, Razvan Bunescu, and Chang Liu.
+\newblock Learning to rank relevant files for bug reports using domain knowledge.
+\newblock In {\em Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering}, FSE 2014, page 689–699, New York, NY, USA, 2014. Association for Computing Machinery.
+
+\bibitem{7467300}
+Klaus~Changsun Youm, June Ahn, Jeongho Kim, and Eunseok Lee.
+\newblock Bug localization based on code change histories and bug reports.
+\newblock In {\em 2015 Asia-Pacific Software Engineering Conference (APSEC)}, pages 190--197, 2015.
+
+\bibitem{7816459}
+Yun Zhang, David Lo, Xin Xia, Tien-Duy~B. Le, Giuseppe Scanniello, and Jianling Sun.
+\newblock Inferring links between concerns and methods with multi-abstraction vector space model.
+\newblock In {\em 2016 IEEE International Conference on Software Maintenance and Evolution (ICSME)}, pages 110--121, 2016.
+
+\bibitem{https://doi.org/10.1002/smr.2312}
+Zhuo Zhang, Yan Lei, Xiaoguang Mao, Meng Yan, Ling Xu, and Junhao Wen.
+\newblock Improving deep-learning-based fault localization with resampling.
+\newblock {\em Journal of Software: Evolution and Process}, 33(3):e2312, 2021.
+\newblock e2312 smr.2312.
+
+\bibitem{7272945}
+Fei Zhao, Yaming Tang, Yibiao Yang, Hongmin Lu, Yuming Zhou, and Baowen Xu.
+\newblock Is learning-to-rank cost-effective in recommending relevant files for bug localization?
+\newblock In {\em 2015 IEEE International Conference on Software Quality, Reliability and Security}, pages 298--303, 2015.
+
+\bibitem{6227210}
+Jian Zhou, Hongyu Zhang, and David Lo.
+\newblock Where should the bugs be fixed? more accurate information retrieval-based bug localization based on bug reports.
+\newblock In {\em 2012 34th International Conference on Software Engineering (ICSE)}, pages 14--24, 2012.
+
+\end{thebibliography}
